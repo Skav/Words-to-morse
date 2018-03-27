@@ -19,7 +19,6 @@ public class Morse {
         for(int i = 0; i<word.length(); i++)
         {
             pro = (i*100)/word.length();
-            System.out.println(pro);
             System.out.println("Complete:" + Math.round(pro) + "%");
             lowLetter = word.substring(i, i+1);
             switch (lowLetter){
@@ -101,6 +100,38 @@ public class Morse {
                 case " ":
                     morseCode = " / ";
                     break;
+                case "0":
+                    morseCode = "-----";
+                    break;
+                case "1":
+                    morseCode = ".----";
+                    break;
+                case "2":
+                    morseCode = "..---";
+                    break;
+                case "3":
+                    morseCode = "...--";
+                    break;
+                case "4":
+                    morseCode = "....-";
+                    break;
+                case "5":
+                    morseCode = ".....";
+                    break;
+                case "6":
+                    morseCode = "-....";
+                    break;
+                case "7":
+                    morseCode = "--...";
+                    break;
+                case "8":
+                    morseCode = "---..";
+                    break;
+                case "9":
+                    morseCode = "----.";
+                    break;
+
+
             }
             morseWord = morseWord + " " + morseCode;
 
