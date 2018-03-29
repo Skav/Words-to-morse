@@ -10,5 +10,9 @@ public class Main {
         System.out.println("Thanks! The translation has begun");
         Morse morse = new Morse(word);
         morse.convertion();
+
+        System.out.println(morse.toString());
+
+        input.close();
     }
 }

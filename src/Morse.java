@@ -1,7 +1,8 @@
 public class Morse {
 
-    private String word, lowLetter, morseCode, morseWord = "";
+    private String word, lowLetter, morseCode, morseWord = "", morseError;
     private double pro;
+    private boolean morseTrue = true;
 
     public Morse()
     {
@@ -131,11 +132,32 @@ public class Morse {
                     morseCode = "----.";
                     break;
 
-
             }
-            morseWord = morseWord + " " + morseCode;
+
+            if(morseCode == null)
+            {
+                morseError = "\n Error: Unsupported exception \n Application has been stopped";
+                morseTrue = false;
+                i = word.length()+1;
+                morseWord = "";
+            }
+            else {
+                morseWord = morseWord + " " + morseCode;
+            }
 
         }
-        System.out.println("Your word ("+word+") in morse alphabet is: " + morseWord);
+
+    }
+
+    public boolean isMorseTrue() {
+        return morseTrue;
+    }
+
+
+    public String toString() {
+        if(morseTrue == true)
+            return "Your word in morse alphabet is: " + morseWord;
+        else
+         return morseError;
     }
 }
