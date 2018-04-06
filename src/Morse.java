@@ -1,163 +1,58 @@
 public class Morse {
 
-    private String word, lowLetter, morseCode, morseWord = "", morseError;
-    private double pro;
-    private boolean morseTrue = true;
+    private String word, morseWord="";
+    private int pro;
+    char[] english = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+            'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+            ',', '.', '?', ' '};
 
-    public Morse()
-    {
+    String[] morse = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
+            ".---", "-.-", ".-..", "--", "-.", "---", ".---.", "--.-", ".-.",
+            "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----",
+            "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.",
+            "-----", "--..--", ".-.-.-", "..--..", "/"};
+
+    public Morse() {
         this.word = "test";
     }
 
-    public Morse(String word)
-    {
-        this.word = word;
+    public Morse(String word) {
+        this.word = word.toLowerCase();
     }
 
-    public void convertion()
-    {
-        word = word.toLowerCase();
-        for(int i = 0; i<word.length(); i++)
-        {
-            pro = (i*100)/word.length();
-            System.out.println("Complete:" + Math.round(pro) + "%");
-            lowLetter = word.substring(i, i+1);
-            switch (lowLetter){
-                case "a":
-                    morseCode =  ".-";
-                    break;
-                case "b":
-                    morseCode =  "-...";
-                    break;
-                case "c":
-                    morseCode =  "-.-.";
-                    break;
-                case "d":
-                    morseCode =  "-..";
-                    break;
-                case "e":
-                    morseCode =  ".";
-                    break;
-                case "f":
-                    morseCode =  "..-.";
-                    break;
-                case "g":
-                    morseCode =  "--.";
-                    break;
-                case "h":
-                    morseCode =  "....";
-                    break;
-                case "i":
-                    morseCode =  "..";
-                    break;
-                case "j":
-                    morseCode =  ".---";
-                    break;
-                case "k":
-                    morseCode =  "-.-";
-                    break;
-                case "l":
-                    morseCode =  ".-..";
-                    break;
-                case "m":
-                    morseCode =  "--";
-                    break;
-                case "n":
-                    morseCode =  "-.";
-                    break;
-                case "o":
-                    morseCode =  "---";
-                    break;
-                case "p":
-                    morseCode =  ".--.";
-                    break;
-                case "r":
-                    morseCode =  ".-.";
-                    break;
-                case "s":
-                    morseCode =  "...";
-                    break;
-                case "t":
-                    morseCode =  "-";
-                    break;
-                case "u":
-                    morseCode =  "..-";
-                    break;
-                case "v":
-                    morseCode =  "...-";
-                    break;
-                case "w":
-                    morseCode =  ".--";
-                    break;
-                case "x":
-                    morseCode =  "-..-";
-                    break;
-                case "y":
-                    morseCode =  "-.--";
-                    break;
-                case "z":
-                    morseCode =  "--..";
-                    break;
-                case " ":
-                    morseCode = " / ";
-                    break;
-                case "0":
-                    morseCode = "-----";
-                    break;
-                case "1":
-                    morseCode = ".----";
-                    break;
-                case "2":
-                    morseCode = "..---";
-                    break;
-                case "3":
-                    morseCode = "...--";
-                    break;
-                case "4":
-                    morseCode = "....-";
-                    break;
-                case "5":
-                    morseCode = ".....";
-                    break;
-                case "6":
-                    morseCode = "-....";
-                    break;
-                case "7":
-                    morseCode = "--...";
-                    break;
-                case "8":
-                    morseCode = "---..";
-                    break;
-                case "9":
-                    morseCode = "----.";
-                    break;
+    public void convertion() {
+        char[] chars = word.toCharArray();
+
+        String str = "";
+        boolean isEmpty = true;
+        for (int i = 0; i < chars.length; i++) {
+            pro = (i*100)/chars.length;
+            System.out.println("Complete: " + Math.round(pro)+ "%");
+            for (int j = 0; j < english.length; j++) {
+
+                if (english[j] == chars[i]) {
+
+                        morseWord = morseWord +" "+ morse[j];
+                        isEmpty = false;
+
+                }
 
             }
 
-            if(morseCode == null)
+            if(isEmpty == true)
             {
-                morseError = "\n Error: Unsupported exception \n Application has been stopped";
-                morseTrue = false;
-                i = word.length()+1;
-                morseWord = "";
+                morseWord = morseWord + " " + "unknow sign("+chars[i]+")";
+                System.out.println("Error: unknown sign");
             }
-            else {
-                morseWord = morseWord + " " + morseCode;
-            }
+            isEmpty = true;
 
         }
-
     }
 
-    public boolean isMorseTrue() {
-        return morseTrue;
-    }
-
-
-    public String toString() {
-        if(morseTrue == true)
-            return "Your word in morse alphabet is: " + morseWord;
-        else
-         return morseError;
+    public String toString(){
+        return morseWord;
     }
 }
+
+
