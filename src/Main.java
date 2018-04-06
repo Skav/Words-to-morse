@@ -1,5 +1,16 @@
 import java.util.Scanner;
 
+/*
+
+    Words to morse translator by Skav
+
+    ver. 1.1
+
+    Please don't copy code without providing the author
+
+ */
+
+
 public class Main {
     private static boolean work=true;
 
