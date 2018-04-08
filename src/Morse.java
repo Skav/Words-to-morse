@@ -68,14 +68,6 @@ public class Morse {
 
     public void convertionMorseWord(){
 
-
-       /* for(int o = 0; o<morse.length; o++)
-        {
-            if(word.equals(morse[o]))
-            {
-                System.out.println(english[o]);
-            }
-        }*/
     boolean isEmpty = true;
     char[] code = word.toCharArray();
 

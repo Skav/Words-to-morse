@@ -4,7 +4,7 @@ import java.util.Scanner;
 
     Words to morse translator by Skav
 
-    ver. 1.1.1
+    ver. 1.1.1.1
 
     This is tested version!
 
@@ -47,17 +47,6 @@ public class Main {
         Morse morse = new Morse(word, action);
         System.out.println("Your translated word is: " + morse.toString());
 
-        /*
-            System.out.print("Pleas enter your word/sentence: ");
-            String word = input.nextLine();
-            System.out.println("Thanks! The translation has begun");
-
-            morse.convertion();
-
-            System.out.println("Your translated word is: " + morse.toString());
-
-
-            */
 
         input.close();
     }
